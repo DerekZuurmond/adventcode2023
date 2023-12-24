@@ -32,7 +32,7 @@ def last_num(numbers: list) -> int:
 def load_data(filename) -> list:
     """Get the data from adventcode in memmory."""
     file_name = 'day1.txt'
-    file_path = os.path.join(os.path.dirname(os.getcwd()), 'data', file_name)
+    file_path = os.path.join(os.getcwd(), 'data', file_name)
     with open(file_path, 'r') as file:
         # Use list comprehension to create a list with each line as an element
         lines = [line.strip() for line in file.readlines()]
@@ -71,16 +71,12 @@ def find_full_out_num(text) -> int:
     return int(str(first_num) + str(last_num))
 
 
-def solution_2(text):
-    """Give solution 2."""
-    return get_number_string_v1(find_full_out_num(text))
-
 
 input_string = "hellthree1"
 result = find_full_out_num(input_string)
 
 lines = load_data("day1")
-answer = sum([get_number_string_v1(x) for x in lines])
+answer = print(sum([get_number_string_v1(x) for x in lines]))
 
 
 a = ["two1nine",
@@ -90,4 +86,4 @@ a = ["two1nine",
      "4nineeightseven2",
      "zoneight234",
      "7pqrstsixteen"]
-answer2 = sum([find_full_out_num(x) for x in lines])
+answer2 = print(sum([find_full_out_num(x) for x in lines]))
