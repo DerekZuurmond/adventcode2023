@@ -8,7 +8,7 @@ def get_number_string_v1(text) -> int:
 
     for example  'h3ll01' will return 31
     """
-    pattern = r'\d+'
+    pattern = r"\d+"
     numbers = re.findall(pattern, text)
     numbers = [int(number) for number in numbers]
     if len(numbers) > 0:
@@ -31,9 +31,9 @@ def last_num(numbers: list) -> int:
 
 def load_data(filename) -> list:
     """Get the data from adventcode in memmory."""
-    file_name = 'day1.txt'
-    file_path = os.path.join(os.getcwd(), 'data', file_name)
-    with open(file_path, 'r') as file:
+    file_name = "day1.txt"
+    file_path = os.path.join(os.getcwd(), "data", file_name)
+    with open(file_path, "r") as file:
         # Use list comprehension to create a list with each line as an element
         lines = [line.strip() for line in file.readlines()]
     return lines
@@ -45,15 +45,15 @@ def find_full_out_num(text) -> int:
     for example  'hellthree1' will return 31
     """
     options_mapping = {
-        'one': 1,
-        'two': 2,
-        'three': 3,
-        'four': 4,
-        'five': 5,
-        'six': 6,
-        'seven': 7,
-        'eight': 8,
-        'nine': 9,
+        "one": 1,
+        "two": 2,
+        "three": 3,
+        "four": 4,
+        "five": 5,
+        "six": 6,
+        "seven": 7,
+        "eight": 8,
+        "nine": 9,
     }
     for i in range(1, 10):
         options_mapping[str(i)] = i
@@ -71,7 +71,6 @@ def find_full_out_num(text) -> int:
     return int(str(first_num) + str(last_num))
 
 
-
 input_string = "hellthree1"
 result = find_full_out_num(input_string)
 
@@ -79,11 +78,13 @@ lines = load_data("day1")
 answer = print(sum([get_number_string_v1(x) for x in lines]))
 
 
-a = ["two1nine",
-     "eightwothree",
-     "abcone2threexyz",
-     "xtwone3four",
-     "4nineeightseven2",
-     "zoneight234",
-     "7pqrstsixteen"]
+a = [
+    "two1nine",
+    "eightwothree",
+    "abcone2threexyz",
+    "xtwone3four",
+    "4nineeightseven2",
+    "zoneight234",
+    "7pqrstsixteen",
+]
 answer2 = print(sum([find_full_out_num(x) for x in lines]))
