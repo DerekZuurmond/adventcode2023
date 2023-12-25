@@ -61,6 +61,14 @@ def count_colors(df, color, max_value):
     return (df.filter(like=color) <= max_value).all(axis=1)
 
 
+def power_colors(df):
+    red = df.filter(like="red").max(axis=1)
+    blue = df.filter(like="blue").max(axis=1)
+    yellow = df.filter(like="green").max(axis=1)
+    cube = red * blue * yellow
+    return sum(cube)
+
+
 game_dict = dict()
 for line in lines:
     game_no, game_res = line.split(":")
@@ -77,4 +85,5 @@ sol_bool_arr = bool_blue_arr & bool_red_arr & bool_green_arr
 print(sum(sol_bool_arr[sol_bool_arr == True].index))
 
 
-## Solution 1
+## Solution 2
+print(power_colors(df))
