@@ -1,4 +1,5 @@
 import os
+from platform import java_ver
 import pandas as pd
 
 MAX_VALE_RED = 12
@@ -57,11 +58,11 @@ def parser(lines) -> pd.DataFrame:
     return df
 
 
-def count_colors(df, color, max_value):
+def count_colors(df, color, max_value) -> pd.Series:
     return (df.filter(like=color) <= max_value).all(axis=1)
 
 
-def power_colors(df):
+def power_colors(df) -> int:
     red = df.filter(like="red").max(axis=1)
     blue = df.filter(like="blue").max(axis=1)
     yellow = df.filter(like="green").max(axis=1)
@@ -69,6 +70,7 @@ def power_colors(df):
     return sum(cube)
 
 
+a = 1
 game_dict = dict()
 for line in lines:
     game_no, game_res = line.split(":")
@@ -87,3 +89,5 @@ print(sum(sol_bool_arr[sol_bool_arr == True].index))
 
 ## Solution 2
 print(power_colors(df))
+
+a = "Dit een erg lange tekst die beter op  een volgende lijne gesplit kan worden. Het wordt nu wel erg onoverzichtelijk. Hier zou eigen een package voor moeten bestaanDit een erg lange tekst die beter op  een volgende lijne gesplit kan worden. Het wordt nu wel erg onoverzichtelijk. Hier zou eigen een package voor moeten bestaan"
