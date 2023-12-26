@@ -89,20 +89,6 @@ def answer1(arr, allowed):
     return sum(res)
 
 
-exampel_day3 = """
-467..114..
-...*......
-..35..633.
-......#...
-617*......
-.....+.58.
-..592.....
-......755.
-...$.*....
-.664.598..
-"""
-
-
 def load_data(filename) -> list:
     """Get the data from adventcode in memmory."""
     file_path = os.path.join(os.getcwd(), "data", filename)
@@ -123,3 +109,5 @@ sub_vec = find_number_subvectors(arr)
 special_neigh_arr = make_special_matrix(arr)
 allowed_sub_vec = sub_vectors_allowed(sub_vec, special_neigh_arr)
 print(answer1(arr, allowed_sub_vec))
+
+# extra comment
